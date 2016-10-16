@@ -1,0 +1,82 @@
+p, div, body {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: 'SelfModern-Light';
+  src: url('assets/fonts/SelfModern-Light.eot?#iefix') format('embedded-opentype'),  url('assets/fonts/SelfModern-Light.otf')  format('opentype'),
+       url('assets/fonts/SelfModern-Light.woff') format('woff'), url('assets/fonts/SelfModern-Light.ttf')  format('truetype'), url('assets/fonts/SelfModern-Light.svg#SelfModern-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+main.fluid {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+main.mobile .row:nth-child(1) {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.row:nth-child(2), .row:nth-child(3) {
+  display: none;
+}
+
+main.fluid .row {
+  display: block;
+  height: 33.33%;
+  width: 100%;
+}
+
+.previewimg {
+  width: 100vw;
+  height: auto;
+}
+
+main.mobile .previewimg {
+  margin: 0 0 50px 0;
+}
+
+main.fluid .previewimg {
+  width: auto;
+  height: 100%;
+}
+
+.soon {
+  text-align: center;
+}
+
+main.fluid .soon {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: calc(100% - 35vh * 1.35);
+
+}
+
+.soon-txt {
+  font-family: 'SelfModern-Light', 'Baskerville', sans-serif;
+}
+
+main.mobile .soon-txt {
+  font-size: 50px !important;
+}
+
+main.fluid .soon-txt {
+  display: inline-block;
+  font-size: 20px;
+}
+
+main.fluid .row__right .soon, .row__left .previewimg {
+  float: left;
+}
+
+main.fluid .row__left .soon, .row__right .previewimg {
+  float: right;
+}
+

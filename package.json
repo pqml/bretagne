@@ -1,0 +1,20 @@
+{
+  "name": "bretagne",
+  "version": "0.0.1",
+  "description": "Website for the Bretagne type foundry",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pqml/bretagne.git"
+  },
+  "author": "Lucas Le Bihan & Hugo Piquemal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pqml/bretagne/issues"
+  },
+  "homepage": "https://github.com/pqml/bretagne#readme",
+  "devDependencies": {},
+  "dependencies": {},
+  "private": true,
+}
