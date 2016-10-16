@@ -1,5 +1,5 @@
 <p align="center">
-  ![preview](preview.jpg?raw=true "preview")
+  <img src="preview.jpg" alt="Bretagne">
 </p>
 <br>
 <h1 align="center">bretagnebretagne.fr</h1>
