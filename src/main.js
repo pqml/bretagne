@@ -9,7 +9,8 @@ var iTextH, iTextW, iFontSize
 
 function initSizes () {
   iTextH = DOM.texts[0].clientHeight
-  iTextW = DOM.texts[0].clientWidth
+  //iTextW = DOM.texts[0].clientWidth
+  iTextW = 85
   iFontSize = 17
 }
 
@@ -33,6 +34,7 @@ function isFluid () {
 }
 
 function fitText () {
+  if (!DOM.image.clientWidth) return
   if (!isFluid()) return
   if (!iTextH) initSizes()
   var nEmptyH = DOM.image.clientHeight
@@ -40,18 +42,20 @@ function fitText () {
   resizeText(Math.min((nEmptyW * iFontSize) / iTextW, (iFontSize * nEmptyH) / iTextH))
 }
 
+var loadedElems = 0
+function loader () {
+  loadedElems++
+  if (loadedElems >= 2) fitText()
+}
+if(DOM.image.complete) loader()
+else DOM.image.onload = loader
+
 window.addEventListener('resize', fitText)
 
 window.WebFont.load({
   custom: {
-    families: ['SelfModern-Light']
+    families: ['SelfModern-Light'],
+    urls: ['assets/fonts/SelfModern-Light.css']
   },
-  loading: function () {
-    setTimeout(function () {
-      if (isFluid()) {
-        initSizes()
-        fitText()
-      }
-    }, 10)
-  }
+  loading: loader
 })
