@@ -23,7 +23,7 @@ let scrollY = 0
 let cachedSlugs = []
 
 function cap (text) {
-  return text.replace(/\b\w/g, l => l.toUpperCase())
+  return text.replace(/(?:^|\s)\S/g, l => l.toUpperCase())
 }
 
 function stripSpan (e) {
