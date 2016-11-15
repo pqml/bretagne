@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "residence_web-A";
+    src: url("residence_web-A.eot");
+    src: url("residence_web-A.eot?#iefix") format("embedded-opentype"),
+         url("residence_web-A.woff2") format("woff2"),
+         url("residence_web-A.woff") format("woff"),
+         url("residence_web-A.ttf") format("ttf"),
+         url("residence_web-A.svg#residence_web-A") format("svg");
+    font-style: normal;
+    font-weight: 300;
+}

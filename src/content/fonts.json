@@ -1,0 +1,52 @@
+[
+  {
+    "name": "self modern",
+    "subfamilies": [
+      {
+        "name": "regular",
+        "slug": "self-modern-regular",
+        "chunks": [
+          "self_modern_web-A-A"
+        ]
+      },
+      {
+        "name": "italic",
+        "slug": "self-modern-italic",
+        "chunks": [
+          "self_modern_italic_web-A-A"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "résidence",
+    "subfamilies": [
+      {
+        "name": "regular",
+        "slug": "residence-regular",
+        "chunks": [
+          "residence_web-A"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "sporting grotesque",
+    "subfamilies": [
+      {
+        "name": "normal",
+        "slug": "sporting-grotesque-normal",
+        "chunks": [
+          "sporting_grotesque-A-A"
+        ]
+      },
+      {
+        "name": "gras",
+        "slug": "sporting-grotesque-gras",
+        "chunks": [
+          "sporting_grotesque_bold-A-A"
+        ]
+      }
+    ]
+  }
+]

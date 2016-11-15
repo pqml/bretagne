@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "self_modern_italic_web-A-A";
+    src: url("self_modern_italic_web-A-A.eot");
+    src: url("self_modern_italic_web-A-A.eot?#iefix") format("embedded-opentype"),
+         url("self_modern_italic_web-A-A.woff2") format("woff2"),
+         url("self_modern_italic_web-A-A.woff") format("woff"),
+         url("self_modern_italic_web-A-A.ttf") format("ttf"),
+         url("self_modern_italic_web-A-A.svg#self_modern_italic_web-A-A") format("svg");
+    font-style: normal;
+    font-weight: 300;
+}

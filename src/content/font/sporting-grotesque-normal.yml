@@ -1,0 +1,8 @@
+layout: font.hbs
+route: font/sporting-grotesque-normal/index.html
+
+family: Sporting Grotesque
+subfamily: Normal
+slug: sporting-grotesque-normal
+chunks:
+  - sporting_grotesque-A-A

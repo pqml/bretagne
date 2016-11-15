@@ -1,0 +1,64 @@
+<!--
+Made by Lucas Le Bihan & Hugo Piquemal
+https://github.com/pqml/bretagne
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="{{compiler.publicPath}}">
+  <title>{{metas.title}}</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="{{metas.description}}" />
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimal-ui">
+  {{> miscmeta.hbs}}
+  {{> social.hbs}}
+  {{> favicons.hbs}}
+  {{#if compiler.isProduction}}
+  <link rel="stylesheet" href="bundle-{{compiler.hash}}.css">
+  {{/if}}
+  {{#each chunks}}
+  <link rel="stylesheet" class="fontChunk" href="fonts/{{this}}.css">
+  {{/each}}
+  <script type="text/javascript">
+    window.bretagne = {
+      publicPath: '{{compiler.publicPath}}',
+      defaultSlug: '{{defaultSlug}}',
+      fonts: {{{fonts}}}
+    }
+  </script>
+</head>
+<body>
+  <section class="card">
+    <div class="card-picture" id="picture">
+      <img src="images/bretagne.jpg">
+    </div>
+    <div class="card-about">
+      Bretagne<br>type foundry
+    </div>
+    <div class="card-author">
+      <p class="author-infos">All fonts and trial versions are available on demand.</p>
+      <p class="author-contacts">
+        <a href="mailto:lucas.bihan@gmail.com?subject=Bretagne • Contact">lucas.bihan@gmail.com</a>
+        <br>
+        <a href="tel:+33683131378">+33 6 83 13 13 78</a>
+      </p>
+    </div>
+  </section>
+  <section class="visualizer">
+    <div class="visualizer-list">
+      <ol id="fonts">
+      {{#each families}}
+        <li>{{{links this ../slug}}}</li>
+      {{/each}}
+      </ol>
+      <div class="visualizer-resizer hidden" id="resizer">
+        <button type="button" class="resizer-button" id="resizer-decrease">-</button>
+        <span class="resizer-value" id="resizer-currentsize">48pt</span>
+        <button type="button" class="resizer-button" id="resizer-increase">+</button>
+      </div>
+    </div>
+    <div class="visualizer-font" id="visualizer-font" style="font-family: {{#each chunks}}'{{this}}', {{/each}}sans-serif" contenteditable>{{{text}}}</div>
+  </section>
+  <script src="bundle-{{compiler.hash}}.js"></script>
+</body>
+</html>

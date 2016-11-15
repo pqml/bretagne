@@ -1,0 +1,8 @@
+layout: font.hbs
+route: font/self-modern-regular/index.html
+
+family: Self Modern
+subfamily: Regular
+slug: self-modern-regular
+chunks:
+  - self_modern_web-A-A

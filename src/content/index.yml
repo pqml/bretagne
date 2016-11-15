@@ -1,0 +1,9 @@
+layout: font.hbs
+
+metas:
+  title: Bretagne
+family: Self Modern
+subfamily: Regular
+slug: self-modern-regular
+chunks:
+  - self_modern_web-A-A

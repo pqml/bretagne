@@ -1,0 +1,8 @@
+layout: font.hbs
+route: font/residence-regular/index.html
+
+family: Résidence
+subfamily: Regular
+slug: residence-regular
+chunks:
+  - residence_web-A
