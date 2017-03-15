@@ -8,6 +8,7 @@ module.exports = {
     'thin', 'thin italic',
     'extralight', 'extra light', 'extralight italic', 'extra light italic',
     'light', 'light italic',
+    'text',
     'book', 'book italic', 'regular', 'regular italic', 'roman', 'roman italic', 'normal',
     'italic',
     'medium', 'medium italic',

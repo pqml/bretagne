@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "self-modern_text_trial-A";
+    src: url("self-modern_text_trial-A.eot");
+    src: url("self-modern_text_trial-A.eot?#iefix") format("embedded-opentype"),
+         url("self-modern_text_trial-A.woff2") format("woff2"),
+         url("self-modern_text_trial-A.woff") format("woff"),
+         url("self-modern_text_trial-A.ttf") format("ttf"),
+         url("self-modern_text_trial-A.svg#self-modern_text_trial-A") format("svg");
+    font-style: normal;
+    font-weight: 300;
+}

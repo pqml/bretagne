@@ -1,0 +1,8 @@
+layout: font.hbs
+route: font/self-modern-text/index.html
+
+family: Self Modern
+subfamily: Text
+slug: self-modern-text
+chunks:
+  - self-modern_text_trial-A

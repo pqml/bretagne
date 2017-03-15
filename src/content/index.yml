@@ -2,8 +2,8 @@ layout: font.hbs
 
 metas:
   title: Bretagne
-family: Self Modern
+family: Résidence
 subfamily: Regular
-slug: self-modern-regular
+slug: residence-regular
 chunks:
-  - self_modern_web-A-A
+  - residence_web-A
