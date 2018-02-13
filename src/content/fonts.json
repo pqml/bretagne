@@ -6,21 +6,21 @@
         "name": "text",
         "slug": "self-modern-text",
         "chunks": [
-          "self-modern_text_trial-A"
+          "bretagne_self-modern_text_trial-A"
         ]
       },
       {
         "name": "regular",
         "slug": "self-modern-regular",
         "chunks": [
-          "self_modern_trial-A"
+          "bretagne_self-modern_regular_trial-A"
         ]
       },
       {
         "name": "italic",
         "slug": "self-modern-italic",
         "chunks": [
-          "self_modern_italic_trial-A"
+          "bretagne_self-modern_italic_trial-A"
         ]
       }
     ]
@@ -32,7 +32,7 @@
         "name": "regular",
         "slug": "residence-regular",
         "chunks": [
-          "residence_web-A"
+          "RésidenceTrial-A"
         ]
       }
     ]
@@ -44,14 +44,14 @@
         "name": "normal",
         "slug": "sporting-grotesque-normal",
         "chunks": [
-          "sporting_grotesque-A-A"
+          "sporting_grotesque-A"
         ]
       },
       {
         "name": "gras",
         "slug": "sporting-grotesque-gras",
         "chunks": [
-          "sporting_grotesque_bold-A-A"
+          "sporting_grotesque_bold-A"
         ]
       }
     ]

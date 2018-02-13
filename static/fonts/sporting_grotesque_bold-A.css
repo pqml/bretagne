@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "sporting_grotesque_bold-A";
+    src: url("sporting_grotesque_bold-A.eot");
+    src: url("sporting_grotesque_bold-A.eot?#iefix") format("embedded-opentype"),
+         url("sporting_grotesque_bold-A.woff2") format("woff2"),
+         url("sporting_grotesque_bold-A.woff") format("woff"),
+         url("sporting_grotesque_bold-A.ttf") format("ttf"),
+         url("sporting_grotesque_bold-A.svg#sporting_grotesque_bold-A") format("svg");
+    font-style: normal;
+    font-weight: 300;
+}
