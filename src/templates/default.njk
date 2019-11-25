@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base href="{{compiler.publicPath}}">
+	<title>{{metas.title}}</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="{{metas.description}}" />
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimal-ui">
+</head>
+<body>
+
+	<header>
+		<figure class="header-picture" id="picture">
+			<img src="images/bretagne.jpg">
+		</figure>
+		<section class="header-about">
+			Bretagne<br>type foundry
+		</section>
+		<section class="header-author">
+			<p class="author-infos">
+			All fonts and trial versions are available on demand.
+		</p>
+			<p class="author-contacts">
+				<a href="mailto:lucas.bihan@gmail.com?subject=Bretagne • Contact">lucas.bihan@gmail.com</a>
+				<br>
+				<a href="tel:+33683131378">+33 6 83 13 13 78</a>
+			</p>
+		</section>
+	</header>
+
+	<main>
+		<section class="fonts">
+			<nav class="fonts-selector">
+				<ol>
+				</ol>
+			</nav>
+			<aside class="fonts-resizer">
+				<button type="button" class="resizer-button">-</button>
+				<span class="resizer-value">48pt</span>
+				<button type="button" class="resizer-button">+</button>
+			</aside>
+		</section>
+
+		<section class="visualizer" contenteditable></section>
+	</main>
+</body>
+</html>
