@@ -1,7 +1,7 @@
 import timestamp from '../utils/timestamp'
 
-import createMain from '../../config/configMain'
-import createPaths from '../../config/configPaths'
+import createProjectConfig from '../../config/project.main'
+import createProjectPaths from '../../config/project.paths'
 
 export default function createConfig (opts = {}) {
 	const config = Object.assign(
@@ -9,14 +9,14 @@ export default function createConfig (opts = {}) {
 			baseURL: '/',
 			assetsBaseURL: '/'
 		},
-		createMain(),
+		createProjectConfig(),
 		{
 			development: opts.development,
 			environment: opts.environment,
 			hash: timestamp()
 		})
 
-	config.paths = createPaths(config)
+	config.paths = createProjectPaths(config)
 
 	// Computed values
 	Object.assign(config, {

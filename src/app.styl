@@ -1,0 +1,226 @@
+global-reset()
+
+$mobile = 700px
+$mini = 1000px
+$maxi = 1320px
+$maxcolumn = 400px
+
+$margin = 2%
+$margin2 = 3%
+$ColWidth = calc(33.3333% - 1.3333%)
+$doubleColWidth = calc(66.66666% - .66665%)
+
+
+
+/* ------------ */
+/*    COMMON    */
+/* ------------ */
+
+*
+	-webkit-tap-highlight-color transparent
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+*:focus
+	outline none
+
+a
+	border-sizing content-box
+	color black
+	text-decoration none
+
+a:hover, .menu-fonts li .link--current
+	position relative
+
+a:hover, .menu-fonts li .link--current
+	color: $gray
+
+body
+	font-family sans-serif
+	font-weight 300
+	padding 2%
+	font-size 1.6rem
+	line-height 1.3
+	+below-width($mini)
+		font-size 1.2rem
+
+header, main
+	display block
+	width 100%
+	display flex
+	flex-flow row nowrap
+	justify-content space-between
+	+below-width($mobile)
+		display block
+	& > *
+		width $ColWidth
+		+below-width($mobile)
+			width 100%
+
+
+
+/* ------------ */
+/*    HEADER    */
+/* ------------ */
+
+header
+	.header-picture
+		margin 0
+		padding 0
+		// margin-right 2%
+		+below-width($mobile)
+			display none
+		+above-width($maxi)
+			width $maxcolumn
+
+	.header-picture img
+		width 100%
+		height auto
+
+	.header-about, .header-author
+		width $ColWidth
+		+below-width($mobile)
+			width 100%
+			margin-bottom $margin
+		+above-width($maxi)
+			width "calc(50% - 2% - %s)" % ($maxcolumn / 2)
+
+	.header-author
+		+below-width($mobile)
+			padding-bottom $margin2
+			border-bottom 1px solid #aaa
+
+	.header-author .author-infos
+		margin-bottom 1em
+		max-width 300px
+		+below-width($mini)
+			max-width 250px
+		+below-width($mobile)
+			margin-bottom $margin
+
+
+
+/* ------------ */
+/*     MAIN     */
+/* ------------ */
+
+main
+	margin-top 2%
+
+	& > *
+		+below-width($mobile)
+			margin-top 15px
+
+	.menu
+		+above-width($maxi)
+			width $maxcolumn
+
+	// Font list
+	.menu-fonts
+		min-height 1px
+		margin-right 2%
+		+above-width($maxi)
+			width $maxcolumn
+
+	.menu-fonts ol
+		list-style-type decimal-leading-zero
+		list-style-position outside
+		padding-left 2em
+		box-sizing border-box
+		+below-width($mobile)
+			width 102%
+			padding-top 1%
+			padding-bottom $margin
+			border-bottom 1px solid #aaa
+
+	.menu-fonts li
+		padding-left 10px
+		margin-bottom 5%
+		+below-width($mobile)
+			margin-bottom 10px
+
+	.menu-fonts ol.pinned
+		position fixed
+		top 0
+		margin-top 2%
+		left 2%
+
+	// Resizer buttons
+	.menu-controller
+		display flex
+		flex-flow row wrap
+		align-items center
+		justify-content space-between
+		margin-top 10%
+		width calc(100% - 8%)
+		+below-width($mobile)
+			margin-top 30px
+			margin-bottom 50px
+
+	.menu-controller.pinned
+		position fixed
+		bottom 0
+		margin-bottom 2%
+		left 2%
+		width calc(33.333% - 2.6666%  - 8%)
+
+	.menu-controller > *
+		margin-bottom 3%
+
+	.menu-controller
+		+below-width($mobile)
+			width 100%
+		+above-width($maxi)
+			width calc(400px - 8%)
+
+	.menu-controller.hidden
+		display none
+
+	.controller-resizer
+		display flex
+		flex-flow row nowrap
+		align-items center
+		justify-content space-between
+
+	.controller-resizer .resizer-value
+		margin 0px 0.5rem
+
+	.controller-resizer .resizer-button
+		outline-color transparent
+		outline-style none
+		background transparent
+		text-align center
+		border none
+		font-size 1rem
+		border-radius 60px
+
+		+below-width($mini)
+			width 30px
+			height 30px
+			padding 0 0 2px 0
+			border-width 1px
+		+below-width($mobile)
+			width 41px
+			height 41px
+			border 1px solid $gray
+
+	.controller-resizer .resizer-button:hover
+		cursor pointer
+		color $gray
+
+	.controller-resizer .resizer-button:active
+		color $gray
+
+	// Visualizer
+	.visualizer
+		width $doubleColWidth
+		padding-bottom 25px
+		box-sizing border-box
+		hyphens auto
+		font-size 48px
+		line-height 1.3
+
+		+below-width($mobile)
+			width 100%
+		+above-width($maxi)
+			width "calc(100% - 2% - %s)" % ($maxcolumn)

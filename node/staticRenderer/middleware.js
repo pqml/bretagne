@@ -20,8 +20,6 @@ export default function middleware ({
 	function staticMiddleware (req, res, next) {
 		const page = pagelist.getPageFromRoute(req.url)
 
-		console.log(page)
-
 		// If the current requested url match an existing route
 		if (page) processTemplate(page, { req, res, next })
 		// It's not for this middleware, skip this request

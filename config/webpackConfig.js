@@ -6,7 +6,7 @@ Create the webpack configuration, used different parameters
 ────────────────────
 
 webpackConfig = createWebpackConfig({
-	config: {}, // Oscar configuration,
+	config: {}, // Project configuration,
 	port: 3000, // Port for the webpack-dev-server (default 3000)
 	before: () => {}, // `before` option of the webpack-dev-server
 	after: () => {} // `after` option of the webpack-dev-server
@@ -37,13 +37,16 @@ export default function webpackConfig (config) {
 		devtool: config.development ? 'cheap-module-eval-source-map' : false,
 
 		entry: {
-			bundle: path.join(paths.src, 'entry.js')
+			bundle: [
+				path.join(paths.src, 'app.js'),
+				path.join(paths.src, 'app.styl')
+			]
 		},
 
 		output: {
 			path: path.join(paths.dist, config.baseURL),
 			publicPath: publicPath,
-			filename: paths.webpackAsset('js/[name].bundle.js'),
+			filename: paths.webpackAsset('js/[name].js'),
 			chunkFilename: paths.webpackAsset('js/[name].chunk.js')
 		},
 
@@ -91,9 +94,6 @@ export default function webpackConfig (config) {
 		},
 
 		optimization: {
-			splitChunks: {
-				chunks: 'all'
-			},
 			minimize: (!config.development && !config.SSRBuild),
 			minimizer: (!config.development && !config.SSRBuild) ? [
 				new TerserPlugin({

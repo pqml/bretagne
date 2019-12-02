@@ -1,0 +1,35 @@
+above(breakW, breakH)
+	@media (min-width: (breakW + 1)) and (min-height: (breakH + 1))
+		{block}
+
+below(breakW, breakH)
+	@media (max-width: (breakW - 1)) and (max-height: (breakH - 1))
+		{block}
+
+above-height(break)
+	@media (min-height: (break + 1))
+		{block}
+
+below-height(break)
+	@media (max-height: (break - 1))
+		{block}
+
+between-height(min, max)
+	@media (min-height: min) and (max-height: max)
+		{block}
+
+above-width(break)
+	@media (min-width: (break + 1))
+		{block}
+
+below-width(break)
+	@media (max-width: (break - 1))
+		{block}
+
+between-width(min, max)
+	@media (min-width: min) and (max-width: max)
+		{block}
+
+retina()
+	@media not all, only screen and (min-resolution: 1.5dppx), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi)
+		{block}

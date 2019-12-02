@@ -30,8 +30,8 @@ export default function webpackPlugins (config) {
 	// CSS Extract plugin
 	!config.SSRBuild && !config.devServerBuild && plugins.push(
 		new MiniCssExtractPlugin({
-			filename: paths.webpackAsset('css/[name].bundle.css'),
-			chunkFilename: paths.webpackAsset('css/[name].bundle.css')
+			filename: paths.webpackAsset('css/[name].css'),
+			chunkFilename: paths.webpackAsset('css/[name].chunk.css')
 		})
 	)
 

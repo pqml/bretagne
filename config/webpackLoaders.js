@@ -3,7 +3,6 @@ import mqpacker from 'css-mqpacker'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 export default function webpackLoaders (config) {
-	console.log(config)
 	const paths = config.paths
 	const loaders = []
 	const includes = [paths.src]
@@ -82,7 +81,12 @@ function createStyleLoaders (config, includes) {
 		options: {
 			sourceMap: false,
 			'include css': true,
-			import: ['~style/colors', '~style/mq', '~style/utils']
+			import: [
+				'./style/colors',
+				'./style/mq',
+				'./style/utils',
+				'./style/reset'
+			]
 		}
 	}
 

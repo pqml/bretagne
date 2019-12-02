@@ -1,0 +1,11 @@
+debug(color = red)
+	box-sizing border-box
+	border 1px solid color
+
+clearfix()
+	&:before
+	&:after
+		content: ""
+		display: table
+	&:after
+		clear: both

@@ -10,7 +10,7 @@ import getPort from './getPort'
 async function waitFirstBuild (config, compiler) {
 	let done = false
 	return new Promise(resolve => {
-		compiler.hooks.done.tap('oscar-done', stats => {
+		compiler.hooks.done.tap('project-done', stats => {
 			if (done) return
 			done = true
 

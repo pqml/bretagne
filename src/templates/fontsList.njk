@@ -1,0 +1,20 @@
+{% for family in config.fonts %}
+	<li>
+	{%- for font in family.fonts %}
+		{% if loop.first -%}
+
+			<a href="font/{{ font.slug }}">{{ family.name }}</a>
+
+			{%- if loop.length > 1 -%}
+			,
+			<br><a href="font/{{ font.slug }}" class="font">{{ font.name }}</a>
+			{%- endif -%}
+
+		{%- else -%}
+
+			&&nbsp;<a href="font/{{ font.slug }}" class="font">{{ font.name }}</a>
+
+		{%- endif %}
+	{%- endfor %}
+	</li>
+{%- endfor %}

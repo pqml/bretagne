@@ -42,7 +42,7 @@ export default function renderer ({ config, pagelist }) {
 		pageData.locale = page.locale || {}
 
 		const content = {
-			oscar: data,
+			config: data,
 			page: pageData,
 			content: page.content
 		}
@@ -51,8 +51,6 @@ export default function renderer ({ config, pagelist }) {
 	}
 
 	async function render (page) {
-		// console.log( page );
-
 		const str = await loadTemplate(page.template)
 		const content = getData(page)
 		const output = nunjucks.renderString(str, content)

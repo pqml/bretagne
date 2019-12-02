@@ -13,9 +13,6 @@ export default function configPaths (config) {
 		// Copydeck files
 		copydeck: path.join(ROOT, 'contents'),
 
-		// Oscar front-end framework
-		framework: path.join(ROOT, 'oscar', 'framework'),
-
 		// Templates / snippets path (Used by node)
 		templates: path.join(SRC, 'templates'),
 
