@@ -47,6 +47,14 @@
     "last 1 versions"
   ],
   "eslintConfig": {
+    "globals": {
+      "FONTS": "readonly",
+      "IS_DEVELOPMENT": "readonly",
+      "IS_PRODUCTION": "readonly",
+      "IS_DEVSERVER": "readonly",
+      "IS_SSR": "readonly",
+      "IS_BROWSER": "readonly"
+    },
     "extends": "@internet",
     "rules": {
       "no-irregular-whitespace": [

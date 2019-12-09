@@ -2,20 +2,26 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<base href="/">
+	<base href="{{ config.baseURL }}">
 	<title>{{ content.metas.title }}</title>
 	<meta name="description" content="{{ content.metas.description }}" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimal-ui">
+
+	<style>
+		{{- config.style -}}
+	</style>
 </head>
-<body>
+<body {% if content.isHome %}class="home"{% endif %}>
 
 	<header>
 		<figure class="header-picture" id="picture">
 			<img src="images/bretagne.jpg">
 		</figure>
 		<section class="header-about">
-			{{- content.card.title -}}
+			<a href="{{ config.baseURL }}" data-route>
+				{{- content.card.title -}}
+			</a>
 		</section>
 		<section class="header-author">
 			<p class="author-infos">
@@ -34,6 +40,7 @@
 	</header>
 
 	<main>
+	{{ font | dump }}
 		<section class="menu">
 			<nav class="menu-fonts">
 				<ol>
@@ -42,12 +49,12 @@
 			</nav>
 			<aside class="menu-controller">
 				<div class="controller-resizer">
-					<button type="button" class="resizer-button">-</button>
+					<button class="resizer-button button-decrease">-</button>
 					<span class="resizer-value">48pt</span>
-					<button type="button" class="resizer-button">+</button>
+					<button class="resizer-button button-increase">+</button>
 				</div>
 				<div class="controller-sound">
-					Sound On
+					<button class="sound-button">Sound On</button>
 				</div>
 			</aside>
 		</section>
@@ -58,6 +65,7 @@
 			autocorrect="off"
 			autocapitalize="off"
 			spellcheck="false"
+			{% if not content.isHome %}style="font-family:'{{content.font.slug}}'"{% endif %}
 			contenteditable
 		>
 			{{- content.sample -}}

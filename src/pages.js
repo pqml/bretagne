@@ -12,7 +12,7 @@ export default async function createPages ({ config }) {
 			pages.push({
 				destination: `font/${font.slug}/index.html`,
 				template: 'default',
-				content: config.content
+				content: Object.assign({}, config.content, { font })
 			})
 		})
 	})

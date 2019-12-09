@@ -1,25 +1,19 @@
 import slugify from 'slugify'
 
-const fontCss = (url) => (`
-@font-face {
-	font-family: "${url}";
-	src: url("${url}.eot");
-	src: url("${url}.eot?#iefix") format("embedded-opentype"),
-		 url("${url}.woff2") format("woff2"),
-		 url("${url}.woff") format("woff"),
-		 url("${url}.ttf") format("ttf"),
-		 url("${url}.svg#${url}") format("svg");
-	font-style: normal;
-	font-weight: 300;
-}
-`).trim()
-
-export function appendFontCSS (data) {
-	data.forEach(family => {
-		family.fonts.forEach(font => {
-			font.css = fontCss(font.url)
-		})
-	})
+export function getFontCss (font) {
+	return [
+		`@font-face { `,
+		`font-family: "${font.slug}"; `,
+		`src: url("fonts/${font.url}.eot"); `,
+		`src: url("fonts/${font.url}.eot?#iefix") format("embedded-opentype"), `,
+		`url("fonts/${font.url}.woff2") format("woff2"), `,
+		`url("fonts/${font.url}.woff") format("woff"), `,
+		`url("fonts/${font.url}.ttf") format("ttf"), `,
+		`url("fonts/${font.url}.svg#fonts/${font.url}") format("svg"); `,
+		`font-style: normal; `,
+		`font-weight: 300; `,
+		`} `
+	].join('')
 }
 
 export function fontList (cb) {
@@ -28,13 +22,13 @@ export function fontList (cb) {
 	return data
 
 	function family (name) {
-		const family = { name, description: '', fonts: [] }
+		const family = { name: name.trim(), description: '', fonts: [] }
 		const api = { font, description }
 		data.push(family)
 		return api
 
 		function description (desc) {
-			family.description = desc
+			family.description = desc.trim()
 			return api
 		}
 

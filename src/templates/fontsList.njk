@@ -3,16 +3,16 @@
 	{%- for font in family.fonts %}
 		{% if loop.first -%}
 
-			<a href="font/{{ font.slug }}">{{ family.name }}</a>
+			<a href="font/{{ font.slug }}" data-route>{{ family.name }}</a>
 
 			{%- if loop.length > 1 -%}
 			,
-			<br><a href="font/{{ font.slug }}" class="font">{{ font.name }}</a>
+			<br><a href="font/{{ font.slug }}" class="font" data-route>{{ font.name }}</a>
 			{%- endif -%}
 
 		{%- else -%}
 
-			&&nbsp;<a href="font/{{ font.slug }}" class="font">{{ font.name }}</a>
+			&&nbsp;<a href="font/{{ font.slug }}" class="font" data-route>{{ font.name }}</a>
 
 		{%- endif %}
 	{%- endfor %}

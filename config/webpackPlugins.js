@@ -17,7 +17,8 @@ export default function webpackPlugins (config) {
 		CONFIG: JSON.stringify(transferConfig(config)),
 		IS_DEVELOPMENT: JSON.stringify(config.development),
 		IS_PRODUCTION: JSON.stringify(!config.development),
-		IS_DEVSERVER: JSON.stringify(config.devServerBuild)
+		IS_DEVSERVER: JSON.stringify(config.devServerBuild),
+		FONTS: JSON.stringify(config.fonts)
 	}
 
 	if (!config.devServerBuild) {
