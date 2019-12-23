@@ -36,7 +36,7 @@ export function fontList (cb) {
 			name = name.trim()
 			url = url.trim()
 			const slug = slugify(family.name.toLowerCase() + '-' + name.toLowerCase())
-			family.fonts.push({ name, url, slug })
+			family.fonts.push({ name, url, slug, family: family.name })
 			return api
 		}
 	}

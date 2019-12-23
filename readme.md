@@ -4,7 +4,6 @@
 </p>
 <h1 align="center"><a href="http://bretagnebretagne.fr">bretagnebretagne.fr</a></h1>
 <h3 align="center">Website of Bretagne, the type foundry of Lucas Le Bihan</h3>
-<h4 align="center">Made with <a href="https://github.com/brocessing/bro-start">bro-start</a></h4>
 
 <br><br>
 <br><br>

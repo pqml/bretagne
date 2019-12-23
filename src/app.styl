@@ -16,6 +16,16 @@ $doubleColWidth = calc(66.66666% - .66665%)
 /*    COMMON    */
 /* ------------ */
 
+::-moz-selection { /* Code for Firefox */
+  color: $white;
+  background: $black;
+}
+
+::selection {
+  color: $white;
+  background: $black;
+}
+
 *
 	-webkit-tap-highlight-color transparent
 	-webkit-font-smoothing: antialiased;
@@ -43,7 +53,7 @@ a:hover, button:hover, .menu-fonts li .link--current
 	color $black
 
 body
-	font-family sans-serif
+	font-family 'insitu light', sans-serif;
 	font-weight 300
 	padding 2%
 	font-size 1.6rem
@@ -134,28 +144,48 @@ main
 		+above-width($maxi)
 			width $maxcolumn
 
-	.menu-fonts ol
-		list-style-type decimal-leading-zero
-		list-style-position outside
-		padding-left 2em
+	.menu-fonts ul
 		box-sizing border-box
+
 		+below-width($mobile)
-			width 102%
-			padding-top 1%
+			width 100%
 			padding-bottom $margin
 			border-bottom 1px solid #aaa
 
 	.menu-fonts li
-		padding-left 10px
-		margin-bottom 5%
+		margin-bottom 0.6em
 		+below-width($mobile)
 			margin-bottom 10px
 
-	.menu-fonts ol.pinned
-		position fixed
-		top 0
-		margin-top 2%
-		left 2%
+	.menu-fonts .family-infos
+		display flex
+		flex-flow row nowrap
+
+	.menu-fonts .infos-index
+		flex-shrink 0
+		width 2em
+		overflow hidden
+
+	.menu-fonts li.active .infos-index,
+	.menu-fonts li.active a.link-family,
+	.menu-fonts a.active
+		color $black
+
+	.menu-fonts a.link-font.active
+		pointer-events none
+
+	.menu-fonts .family-description
+		color $black
+		margin-top 0.7em
+		font-size 0.55em
+		+below-width($mini)
+			font-size 0.65em
+		+below-width($mobile)
+			font-size 0.65em
+
+
+	.menu-fonts li:not(.active) .family-description
+		display none
 
 	// Resizer buttons
 	.menu-controller
@@ -169,22 +199,27 @@ main
 			margin-top 30px
 			margin-bottom 50px
 
+	.menu-controller
+		user-select none
+		width calc(100%)
+
+		.controller-sound
+			margin-right 14%
+			+below-width($mini)
+				margin-right 0%
+
+		+below-width($mobile)
+			width 100%
+
+
 	.menu-controller.pinned
 		position fixed
 		bottom 0
 		margin-bottom 2%
 		left 2%
-		width calc(33.333% - 2.6666%  - 8%)
-
-	.menu-controller > *
-		margin-bottom 3%
-
-	.menu-controller
-		user-select none
-		+below-width($mobile)
-			width 100%
+		width calc(33% - 2.33%)
 		+above-width($maxi)
-			width calc(400px - 8%)
+			width calc(400px)
 
 	.menu-controller.hidden
 		display none
@@ -232,7 +267,7 @@ main
 		width $doubleColWidth
 		padding-bottom 25px
 		box-sizing border-box
-		hyphens auto
+		// hyphens auto
 		font-size 48px
 		line-height 1.3
 
@@ -242,6 +277,15 @@ main
 			width "calc(100% - 2% - %s)" % ($maxcolumn)
 
 
+/* --------------- */
+/* PINNED CONTENTS */
+/* --------------- */
+.menu-fonts.pinned
+	position fixed
+	top 0
+	margin-top 2%
+	left 2%
+
 
 /* ------------- */
 /* COLORED SPANS */
@@ -250,8 +294,14 @@ main
 body:not(.home) main .visualizer *
 	font-family inherit !important
 
-body:not(.home) main .visualizer, body main .visualizer *
-	line-height inherit !important
+body.home main .visualizer
+	line-height 1em
+
+body.home main .visualizer div
+	line-height inherit
+
+body.home main .visualizer *:not(div)
+	line-height 1px !important
 
 body.home main .visualizer
 	& span:nth-child(5n + 1)

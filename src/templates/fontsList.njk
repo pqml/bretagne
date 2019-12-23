@@ -1,20 +1,48 @@
 {% for family in config.fonts %}
-	<li>
-	{%- for font in family.fonts %}
-		{% if loop.first -%}
 
-			<a href="font/{{ font.slug }}" data-route>{{ family.name }}</a>
+	{%- if family.name === content.font.family -%}
+		{%- set currentFamily = true -%}
+	{%- else -%}
+		{%- set currentFamily = false -%}
+	{%- endif -%}
 
-			{%- if loop.length > 1 -%}
-			,
-			<br><a href="font/{{ font.slug }}" class="font" data-route>{{ font.name }}</a>
+	{%- if currentFamily -%}
+		{%- set familyClass = "active" -%}
+	{%- else -%}
+		{%- set familyClass = "" -%}
+	{%- endif -%}
+
+	<li class="{{ familyClass }}" data-family="{{ family.name }}">
+	<div class="family-infos">
+		<div class="infos-index">
+			{% if loop.index < 10 %}0{% endif -%}
+			{{- loop.index }}.
+		</div>
+		<div class="infos-family">
+		{%- for font in family.fonts -%}
+			{%- if currentFamily and font.name === content.font.name -%}
+				{%- set fontClass = "active" -%}
+			{%- else -%}
+				{%- set fontClass = "" -%}
 			{%- endif -%}
 
-		{%- else -%}
+			{%- if loop.first -%}
 
-			&&nbsp;<a href="font/{{ font.slug }}" class="font" data-route>{{ font.name }}</a>
+				<a href="font/{{ font.slug }}" class="link-family" data-route>{{ family.name }}</a>
 
-		{%- endif %}
-	{%- endfor %}
+				{%- if loop.length > 1 -%}
+				,
+				<br><a href="font/{{ font.slug }}" class="link-font {{ fontClass }}" data-route data-slug="{{ font.slug }}">{{ font.name }}</a>
+				{%- endif -%}
+			{%- else -%}
+				{%- if loop.last %} &&nbsp;{%- else -%}, {% endif -%}
+				<a href="font/{{ font.slug }}" class="font {{ fontClass }}" data-route data-slug="{{ font.slug }}">{{ font.name }}</a>
+			{%- endif -%}
+		{%- endfor -%}
+		</div>
+	</div>
+	<p class="family-description">
+		{{ family.description }}
+	</p>
 	</li>
 {%- endfor %}

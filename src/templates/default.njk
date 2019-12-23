@@ -3,19 +3,36 @@
 <head>
 	<meta charset="utf-8">
 	<base href="{{ config.baseURL }}">
-	<title>{{ content.metas.title }}</title>
+	<title>
+		{{- content.metas.title -}}
+		{%- if not content.isHome %}
+		–
+		{{  content.font.family }}
+		{{ content.font.name | capitalize }}
+		{% endif -%}
+	</title>
 	<meta name="description" content="{{ content.metas.description }}" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimal-ui">
-
+	<style>
+		@font-face {
+			font-family: 'insitu light';
+			src: url('fonts/insitu_light-webfont.woff2') format('woff2'),
+				url('fonts/insitu_light-webfont.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+	</style>
 	<style>
 		{{- config.style -}}
 	</style>
+	{% if not config.development -%}
+	<link rel="stylesheet" href="{{ config.paths.assets ~ '/css/bundle.css' }}">
+	{%- endif %}
 </head>
 <body {% if content.isHome %}class="home"{% endif %}>
 
 	<header>
-		<figure class="header-picture" id="picture">
+		<figure class="header-picture">
 			<img src="images/bretagne.jpg">
 		</figure>
 		<section class="header-about">
@@ -43,9 +60,9 @@
 	{{ font | dump }}
 		<section class="menu">
 			<nav class="menu-fonts">
-				<ol>
+				<ul>
 					{% include "fontsList.njk" %}
-				</ol>
+				</ul>
 			</nav>
 			<aside class="menu-controller">
 				<div class="controller-resizer">
@@ -54,7 +71,7 @@
 					<button class="resizer-button button-increase">+</button>
 				</div>
 				<div class="controller-sound">
-					<button class="sound-button">Sound On</button>
+					<button class="sound-button">Sound Off</button>
 				</div>
 			</aside>
 		</section>

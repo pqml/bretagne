@@ -31,17 +31,18 @@
     "path-to-regexp": "^6.1.0",
     "postcss-loader": "^3.0.0",
     "progress-bar-webpack-plugin": "^1.12.1",
-    "sirv": "^0.4.2",
+    "sirv-cli": "^0.4.5",
     "style-loader": "^1.0.0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
-    "terser-webpack-plugin": "^2.2.1",
+    "terser-webpack-plugin": "^2.3.1",
     "webpack": "^4.41.2",
     "webpack-dev-server": "^3.9.0"
   },
   "scripts": {
     "start": "node -r esm node/scripts/start",
-    "build": "node -r esm node/scripts/build"
+    "build": "node -r esm node/scripts/build",
+    "build:serve": "sirv dist"
   },
   "browserslist": [
     "last 1 versions"

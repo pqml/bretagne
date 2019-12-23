@@ -17,12 +17,12 @@ export default function configPaths (config) {
 		templates: path.join(SRC, 'templates'),
 
 		// Assets paths inside dist folder
-		assetsDist: path.join(ROOT, 'dist', config.baseURL, 'assets', config.hash),
+		assetsDist: path.join(ROOT, 'dist', config.baseURL, 'bundle', config.hash),
 
 		// Assets paths for front-end use
-		assets: `${config.assetsBaseURL}assets/${config.hash}`,
+		assets: `${config.assetsBaseURL}bundle/${config.hash}`,
 
 		// Quick fn to resolve assets path
-		webpackAsset: url => `assets/${config.hash}/${url}`
+		webpackAsset: url => `bundle/${config.hash}/${url}`
 	}
 }

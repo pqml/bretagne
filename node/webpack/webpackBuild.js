@@ -6,7 +6,7 @@ import { green, gray, log } from '../utils/logger'
 
 import createWebpackConfig from '../../config/webpackConfig'
 
-import getEntries from './get-entries'
+import getEntries from './getEntries'
 
 export default async function webpackBuild (config = {}) {
 	if (!config.webpack) config.webpack = {}

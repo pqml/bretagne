@@ -2,7 +2,7 @@ import { fontList as fonts } from '../src/utils/fontManager'
 
 /*
 
-	Les fonts sont à mettre dans le dossier fonts,
+	Les fonts sont à mettre dans le dossier static/fonts,
 	Il faut un nom unique pour tout les formats.
 
 	Formats à préparer:

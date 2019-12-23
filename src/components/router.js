@@ -1,8 +1,24 @@
-export default function router ({ links, body, visualizer }) {
+const noop = () => {}
+const capitalize = s => {
+	return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+export default function router ({ fonts, links, body, visualizer }) {
 	const w = window
 	const orig = document.location.origin
 	const base = new URL(document.querySelector('base').href, orig).pathname
 	const history = w.history
+	const fontList = FONTS
+		.map(family => family.fonts)
+		.reduce((p, v) => p.concat(v), [])
+
+	fontList.forEach(font => {
+		const fel = fonts.querySelector('[data-family="' + font.family + '"]')
+		const el = fonts.querySelector('[data-slug="' + font.slug + '"]')
+		font.fontEl = el
+		font.familyEl = fel
+	})
+
 	let prev = null
 
 	navigate(document.location.href)
@@ -17,6 +33,12 @@ export default function router ({ links, body, visualizer }) {
 		e.preventDefault()
 		navigate(el.href)
 	}))
+
+	function repaint () {
+		visualizer.parentNode.style.background = 'white'
+		noop(visualizer.parentNode.offsetHeight)
+		visualizer.parentNode.style.background = 'transparent'
+	}
 
 	function normalize (rawUrl, replace) {
 		let url = new URL(rawUrl, orig).pathname
@@ -38,14 +60,39 @@ export default function router ({ links, body, visualizer }) {
 		history[method]({ url: rawUrl }, '', base + url)
 		prev = url
 		cb(arg)
+		repaint()
 	}
 
 	function home () {
 		body.classList.add('home')
+		updateFontMenu()
 	}
 
 	function font (slug) {
 		body.classList.remove('home')
 		visualizer.style.fontFamily = slug
+		updateFontMenu(slug)
+	}
+
+	function updateFontMenu (slug) {
+		const items = Array.from(fonts.querySelectorAll('.active'))
+		items.forEach(v => v.classList.remove('active'))
+
+		let font = null
+		if (slug) {
+			for (let i = 0, l = fontList.length; i < l; i++) {
+				if (fontList[i].slug !== slug) continue
+				font = fontList[i]
+				break
+			}
+		}
+
+		const metaTitle = document.title.split('–')[0]
+		document.title = metaTitle + (font ? ' – ' + font.family + ' ' + capitalize(font.name) : '')
+
+		if (!font) return
+
+		font.familyEl && font.familyEl.classList.add('active')
+		font.fontEl && font.fontEl.classList.add('active')
 	}
 }
