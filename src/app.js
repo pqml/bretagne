@@ -3,9 +3,11 @@ import sound from './components/sound'
 import router from './components/router'
 import visualizer from './components/visualizer'
 import pinnable from './components/pinnable'
+import matomo from './components/matomo'
 
 const q = s => document.querySelector(s)
 const qa = s => Array.from(document.querySelectorAll(s))
+const analytics = matomo()
 
 const els = {
 	body: q('body'),
@@ -18,9 +20,12 @@ const els = {
 
 	fonts: q('.menu-fonts'),
 	picture: q('.header-picture'),
-	controller: q('.menu-controller')
+	controller: q('.menu-controller'),
+
+	analytics
 }
 
+analytics.load()
 pinnable(els)
 fontSize(els)
 sound(els)

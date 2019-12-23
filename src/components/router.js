@@ -3,11 +3,15 @@ const capitalize = s => {
 	return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
-export default function router ({ fonts, links, body, visualizer }) {
+export default function router ({ fonts, links, body, visualizer, analytics }) {
 	const w = window
 	const orig = document.location.origin
 	const base = new URL(document.querySelector('base').href, orig).pathname
 	const history = w.history
+	let referrer = document.referrer === document.URL
+		? undefined
+		: document.referrer
+
 	const fontList = FONTS
 		.map(family => family.fonts)
 		.reduce((p, v) => p.concat(v), [])
@@ -58,9 +62,21 @@ export default function router ({ fonts, links, body, visualizer }) {
 		const url = normalize(rawUrl)
 		const method = !replace && prev !== null ? 'pushState' : 'replaceState'
 		history[method]({ url: rawUrl }, '', base + url)
+
 		prev = url
+
 		cb(arg)
 		repaint()
+
+		const titlePart = document.title.split('–')[1]
+		const title = titlePart ? 'Font – ' + titlePart.trim() : 'Home'
+		analytics.pageView({
+			title,
+			url: base + url,
+			referrer
+		})
+
+		referrer = base + url
 	}
 
 	function home () {
@@ -87,7 +103,7 @@ export default function router ({ fonts, links, body, visualizer }) {
 			}
 		}
 
-		const metaTitle = document.title.split('–')[0]
+		const metaTitle = document.title.split('–')[0].trim()
 		document.title = metaTitle + (font ? ' – ' + font.family + ' ' + capitalize(font.name) : '')
 
 		if (!font) return
