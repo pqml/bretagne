@@ -11,9 +11,39 @@
 		{{ content.font.name | capitalize }}
 		{% endif -%}
 	</title>
-	<meta name="description" content="{{ content.metas.description }}" />
+
+	<meta name="description" content="{{ content.metas.description }}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimal-ui">
+
+
+	{# MOBILE GLOBAL #}
+	<meta name="HandheldFriendly" content="true">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+
+	<meta name="twitter:image" content="https://bretagnebretagne.fr/images/cover.png">
+	<meta property="og:image" content="https://bretagnebretagne.fr/images/cover.png">
+	<meta itemprop="image" content="https://bretagnebretagne.fr/images/cover.png">
+
+	{# FB #}
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="{{ content.metas.title }}">
+	<meta property="og:image:width" content="1600">
+	<meta property="og:image:height" content="840">
+	<meta property="og:site_name" content="{{ content.metas.title }}">
+	<meta property="og:description" content="{{ content.metas.description }}">
+	<meta property="og:url" content="https://bretagnebretagne.fr">
+
+	{# TWITTER #}
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@lucaslebihan">
+	<meta name="twitter:creator" content="@lucaslebihan">
+	<meta name="twitter:title" content="{{ content.metas.title }}">
+	<meta name="twitter:description" content="{{ content.metas.description }}">
+	<meta name="twitter:url" content="https://bretagnebretagne.fr">
+
+
 	<style>
 		@font-face {
 			font-family: 'insitu light';
@@ -21,6 +51,7 @@
 				url('fonts/insitu_light-webfont.woff') format('woff');
 			font-weight: normal;
 			font-style: normal;
+			font-display: swap;
 	</style>
 	<style>
 		{{- config.style -}}
@@ -33,7 +64,9 @@
 
 	<header>
 		<figure class="header-picture">
-			<img src="images/bretagne.jpg">
+			<a href="{{ config.baseURL }}" data-route>
+			<img src="images/bretagne.jpg" alt="Photography of Britanny">
+			</a>
 		</figure>
 		<section class="header-about">
 			<a href="{{ config.baseURL }}" data-route>
@@ -89,6 +122,6 @@
 		</section>
 	</main>
 
-	<script src="{{ config.paths.assets ~ '/js/bundle.js' }}"></script>
+	<script src="{{ config.paths.assets ~ '/js/bundle.js' }}" async></script>
 </body>
 </html>

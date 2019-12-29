@@ -85,6 +85,7 @@ export default function renderer ({ config, pagelist }) {
 			data = minify(data, {
 				removeComments: true,
 				collapseWhitespace: true,
+				conservativeCollapse: true,
 				removeRedundantAttributes: true,
 				useShortDoctype: true,
 				removeEmptyAttributes: true,

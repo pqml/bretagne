@@ -32,7 +32,8 @@
 
 				{%- if loop.length > 1 -%}
 				,
-				<br><a href="font/{{ font.slug }}" class="link-font {{ fontClass }}" data-route data-slug="{{ font.slug }}">{{ font.name }}</a>
+				{% if not family.noBr -%}<br>{%- endif -%}
+				<a href="font/{{ font.slug }}" class="link-font {{ fontClass }}" data-route data-slug="{{ font.slug }}">{{ font.name }}</a>
 				{%- endif -%}
 			{%- else -%}
 				{%- if loop.last %} &&nbsp;{%- else -%}, {% endif -%}
