@@ -10,6 +10,10 @@ export default function pinnable ({ picture, fonts, controller }) {
 	onScroll()
 	onResize()
 
+	window.setTimeout(() => onResize(), 1)
+	window.setTimeout(() => onResize(), 100)
+	window.setTimeout(() => onResize(), 500)
+
 	function checkPinnable () {
 		// 0.0385 should be 0.04, but there is a weird offset for percent margins
 		const fontsOffset = picture.clientHeight + width * 0.0385 + fonts.clientHeight - scrollY

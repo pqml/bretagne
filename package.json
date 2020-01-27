@@ -42,7 +42,7 @@
   "scripts": {
     "start": "node -r esm node/scripts/start",
     "build": "node -r esm node/scripts/build",
-    "build:serve": "sirv dist"
+    "build:serve": "sirv dist -p 3000"
   },
   "browserslist": [
     "last 1 versions"
