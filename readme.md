@@ -50,7 +50,14 @@ Order of the families and fonts are important!
 Edit the file `/config/bretagne.content.js` to edit meta and text.
 
 
+<br>
+<h1></h1>
+<br>
+
+
 ### Licenses
+<br>
+
 ###### Website
 MIT.
 
