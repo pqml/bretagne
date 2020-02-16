@@ -141,6 +141,7 @@ main
 	.menu-fonts
 		min-height 1px
 		margin-right 2%
+		width 100%
 		+above-width($maxi)
 			width $maxcolumn
 
@@ -194,7 +195,7 @@ main
 		align-items center
 		justify-content space-between
 		margin-top 10%
-		width calc(100% - 8%)
+		width calc(100% - 8%)\
 		+below-width($mobile)
 			margin-top 30px
 			margin-bottom 50px
@@ -241,7 +242,6 @@ main
 		border none
 		font-size 1rem
 		border-radius 60px
-
 		+below-width($mini)
 			width 30px
 			height 30px
@@ -286,7 +286,8 @@ main
 	top 0
 	margin-top 2%
 	left 2%
-
+	+below-width($maxi + 1px)
+		width calc(33.3333% - 2.66666%)
 
 /* ------------- */
 /* COLORED SPANS */

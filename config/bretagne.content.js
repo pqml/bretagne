@@ -24,8 +24,8 @@ a matter of traces left by primitive forces:
 wrinkles carved in man’s foreheads by old legends,
 furrows digging the dune under the west wind
 and the great swell rising up on the shallows.
-<br><br>Website compiled in November 2019 by Hugo Piquemal.
-<br>All fonts Copyright 2019 Lucas Le Bihan.
+<br><br>Website compiled in February 2020 by Hugo Piquemal.
+<br>All fonts Copyright 2020 Lucas Le Bihan.
 `)
 
 export default content

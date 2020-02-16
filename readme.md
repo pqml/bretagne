@@ -36,11 +36,25 @@ Serve and test the current compiled website before deployment.
 <h1></h1>
 <br>
 
+### Manage content
+<br>
+
+#### Adding font file
+Add your font files in the `/static/fonts`. Only **.woff** and **.woff2** formats are needed.
+
+#### Addding font / family content
+Edit the file `/config/bretagne.fonts.js` to link font file to content.
+Order of the families and fonts are important!
+
+#### Change other content
+Edit the file `/config/bretagne.content.js` to edit meta and text.
+
+
 ### Licenses
 ###### Website
 MIT.
 
 ###### Fonts
-© Copyright 2019 Lucas Le Bihan | Tous droits réservés.
+© Copyright 2020 Lucas Le Bihan | Tous droits réservés.
 
 <br><br>
