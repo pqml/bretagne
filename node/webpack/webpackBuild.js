@@ -30,10 +30,12 @@ export default async function webpackBuild (config = {}) {
 
 	const run = promisify(compiler.run.bind(compiler))
 	const stats = await run()
+
 	const entriesList = Array.from(stats.compilation.assetsInfo.keys())
 	const entries = getEntries(config, entriesList)
 
 	// Check for build error
+	if (stats.compilation.errors[0]) throw (stats.compilation.errors[0])
 	stats.compilation.modules.forEach(module => {
 		if (module.error) throw (module.error)
 	})

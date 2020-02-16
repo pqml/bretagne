@@ -18,10 +18,10 @@ export default function configMain () {
 
 	return {
 		// Site base URL (usually override by env)
-		baseURL: '/',
+		baseURL: '/bretagne/',
 
 		// Assets location (usually override by env)
-		assetsBaseURL: '/',
+		assetsBaseURL: '/bretagne/',
 
 		content,
 
